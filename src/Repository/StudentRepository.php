@@ -33,7 +33,6 @@ class StudentRepository extends ServiceEntityRepository
         ';
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        $results = $stmt->fetchAllAssociative();
-        return $results;
+        return $stmt->fetchAllAssociative();
     }
 }

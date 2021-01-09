@@ -19,7 +19,7 @@ class DefaultController extends AbstractController
      * @param Request $request
      * @return JsonResponse
      */
-    public function home(EntityManagerInterface $entityManager, Request $request) {
+    public function sortOutStudentData(EntityManagerInterface $entityManager, Request $request) {
         $students = $entityManager->getRepository(Student::class)->fetchAllStudentData();
         $studentsSorted = array();
         foreach($students as $student) {
