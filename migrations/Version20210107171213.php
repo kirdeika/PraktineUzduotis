@@ -273,7 +273,8 @@ DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;');
 (1, \'Vilniaus universitetas\'),
 (2, \'Kauno technikos univesitetas\'),
 (3, \'Vilniaus Gedimino technikos universitetas\'),
-(4, \'Vytauto Didžiojo universitetas\');');
+(4, \'Vytauto Didžiojo universitetas\'),
+(5, \'LMTA\');');
     }
 
     public function down(Schema $schema) : void

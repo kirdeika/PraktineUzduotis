@@ -47,4 +47,12 @@ class MarkRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findStudentByID($value) {
+        return $this->createQueryBuilder('sdnt')
+            ->andWhere('sdnt.studentId = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }
