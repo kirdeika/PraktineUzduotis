@@ -6,4 +6,26 @@ body {
 #table-div {
     display: flex;
     justify-content: center;
+    overflow: auto;
+}
+
+table {
+    display: block;
+    overflow: auto;
+    background-color: #303030;
+    margin: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 10px 0px 10px 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #454545;
+}
+
+th {
+    padding: 15px 0px 15px 5px;
+    background-color: #212121;
 }
