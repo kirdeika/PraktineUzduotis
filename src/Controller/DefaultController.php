@@ -15,6 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
+     * @Route("/")
+     */
+    public function home() {
+        return $this->render('base.html.twig');
+    }
+    /**
      * @Route("/fetchStudentData", name="student_data", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
