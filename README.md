@@ -6,7 +6,7 @@ This is the end result of an app I was given to do for a job interview.
 
 1. Checkout this repository
 1. Install all dependencies with: `composer install` and `yarn install`
-1. Open the `.env` file and change the database configuration to yours. I have used a local database, after that create database, default name is `marks`.
+1. Open the `.env` file and change the database configuration to yours. I have used a local database, after that create database, default name is `marks`. Database creation can be initiated with `php bin/console doctrine:database:create`
 1. Run `php bin/console doctrine:migrations:migrate` in the terminal for the latest migration, this will create necessary tables and populate them.
 1. Run `yarn encore dev` to build front-end code.
 1. Lastly, start the Symfony server, you can use `symfony serve -d` or `symfony serve`
