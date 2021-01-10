@@ -5,7 +5,7 @@ import {getTableContent} from "./api/table_api";
 class TableComp extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = {          //Setting the default state of the variables.
             error: null,
             isLoaded: false,
             items: []
@@ -13,9 +13,9 @@ class TableComp extends Component {
     }
 
     componentDidMount() {
-        getTableContent()
+        getTableContent()       //Dealing with API call after it is completed
             .then((result) => {
-                this.setState({
+                this.setState({     //Changing the state variables
                     isLoaded: true,
                     items: result
                 })
@@ -23,11 +23,11 @@ class TableComp extends Component {
     }
 
     render() {
-        const {error, isLoaded, items} = this.state;
+        const {error, isLoaded, items} = this.state;    //Getting State variables into usable ones
         if (error) {
             return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div>Loading...</div>;               //While API call is still ongoing, display this.
         } else {
             return (
                 <table className="table">
@@ -43,6 +43,7 @@ class TableComp extends Component {
                     </tr>
                     </thead>
                     <tbody>
+                    {/*Mapping through the items Object, to populate <td> elements and table rows.*/}
                     {Object.keys(items).map((item, index) => {
                         return (
                             <tr key={index}>
@@ -63,5 +64,5 @@ class TableComp extends Component {
         }
     }
 }
-
+//Rendering our table into the table-div element.
 render(<TableComp/>, document.getElementById('table-div'));

@@ -16,7 +16,11 @@ final class Version20210107171213 extends AbstractMigration
     {
         return '';
     }
-
+    /*
+     * This whole migration is semi auto-generated/reused provided SQL code. I got the table creation SQL by using doctrine auto-generate migration command.
+     * After the tables are created, I populate them with already provided data in the SQL file.
+     * Please note that I added one extra university to display all 10 students. In case the 5th university was left out intentionally, the SQL query does not retrieve two last students as they have no existing universities assigned to them.
+     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs

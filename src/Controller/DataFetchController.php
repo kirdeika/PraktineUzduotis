@@ -19,9 +19,20 @@ class DataFetchController extends AbstractController
      * @return JsonResponse
      */
     public function sortOutStudentData(EntityManagerInterface $entityManager, Request $request) {
-        $students = $entityManager->getRepository(Student::class)->fetchAllStudentData();
-        $studentsSorted = array();
+        $students = $entityManager->getRepository(Student::class)->fetchAllStudentData(); //Using previously created function on repository to fetch all necessary student data.
+        $studentsSorted = array(); //Creating empty array to sort out the fetched data.
         foreach($students as $student) {
+            /*
+             * Down here I am creating associative array structure like this:
+             * student_id: {
+             *      full_name: "",              //Student first and last name.
+             *      university_name: "",        //University name.
+             *      subject_code: {             //Subject code is being used from the Database, to eliminate any Lithuanian characters from variables. This variable array gets created as many times as there are subjects.
+             *          subject_name: "",       //Subject name now with the proper grammar
+             *          average_mark: ""        //Already calculated average mark, but before it gets sent out as json, this number is formatted and rounded.
+             *      }
+             * }
+             */
             $studentsSorted[$student['id']]['full_name'] = $student['first_name'] . ' ' . $student['last_name'];
             $studentsSorted[$student['id']]['university_name'] = $student['university_name'];
             $studentsSorted[$student['id']][$student['subject_code']] = array(
@@ -30,7 +41,7 @@ class DataFetchController extends AbstractController
             );
 
         }
-
+        //Returning JsonResponse
         return new JsonResponse($studentsSorted, Response::HTTP_OK);
     }
 }
